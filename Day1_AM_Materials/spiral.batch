@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=spiraljob
+#SBATCH --output=output_primes.%A
+#SBATCH --error=error_primes.%A
+#SBATCH --partition=main
+#SBATCH --qos=main
+#SBATCH --nodes=1
+#SBATCH --mem=2G
+#SBATCH --time=00:10:00
+
+module purge
+module load miniconda3/base
+
+conda activate day1
+
+python ./primesspiral.py
